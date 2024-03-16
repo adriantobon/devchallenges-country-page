@@ -1,4 +1,5 @@
 import './App.css';
+import { useAppState } from './hooks/useAppState';
 
 const HeroBanner = () => {
   return (
@@ -124,10 +125,15 @@ const CountriesTable = () => {
 };
 
 const App = () => {
+
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+  const { appState, setAppState } = useAppState();
+
   return (
     <>
       <HeroBanner />
       <main className="main-container">
+        <p>Test: { appState.filters.region }</p>
         <div className="countries-container">
           <SearchBy />
           <div className="filters-countries-container">
