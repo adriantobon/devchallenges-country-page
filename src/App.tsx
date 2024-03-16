@@ -126,8 +126,7 @@ const CountriesTable = () => {
 
 const App = () => {
 
-  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-  const { appState, setAppState } = useAppState();
+  const { appState } = useAppState();
 
   return (
     <>
