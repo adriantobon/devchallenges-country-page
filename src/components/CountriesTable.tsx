@@ -1,4 +1,10 @@
-export const CountriesTable = () => {
+import { ICountry } from '@/models/country.interface';
+
+interface Props {
+  countries: ICountry[];
+}
+
+export const CountriesTable = ({ countries }: Props) => {
   return (
     <div className="countries-table-container">
       <table className="countries-table">
@@ -12,33 +18,19 @@ export const CountriesTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">
-              <div className="country-flag"></div>
-            </th>
-            <td>China</td>
-            <td>1,402,112,000</td>
-            <td>9,706,961</td>
-            <td className="only-for-desktop">Asia</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <div className="country-flag"></div>
-            </th>
-            <td>India</td>
-            <td>1,439,323,776</td>
-            <td>3,287,590</td>
-            <td className="only-for-desktop">Asia</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <div className="country-flag"></div>
-            </th>
-            <td>United States</td>
-            <td>329,484,123</td>
-            <td>9,372,610</td>
-            <td className="only-for-desktop">Americas</td>
-          </tr>
+          {
+            countries.map((country) => (
+              <tr key={ country.name.common }>
+                <th scope="row">
+                  <div className="country-flag"></div>
+                </th>
+                <td>{ country.name.common }</td>
+                <td>{ country.population }</td>
+                <td>{ country.area }</td>
+                <td className="only-for-desktop">{ country.region }</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

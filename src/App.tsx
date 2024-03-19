@@ -15,12 +15,15 @@ const App = () => {
     <>
       <HeroBanner />
       <main className="main-container">
-        <p>Test: { appState.filters.region }</p>
         <div className="countries-container">
           <SearchBy />
           <div className="filters-countries-container">
             <Filters />
-            <CountriesTable />
+            {
+              appState.isLoading
+                ? <p>is Loading</p>
+                : <CountriesTable countries={appState.countries} />
+            }
           </div>
         </div>
       </main>

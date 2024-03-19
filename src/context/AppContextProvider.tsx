@@ -14,7 +14,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
         region: 'test',
         status: null
       },
-      isLoading: false
+      isLoading: true
     }
   );
 
@@ -25,12 +25,17 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
       setAppState(state => (
         {
           ...state,
-          countries
+          countries,
+          isLoading: false
         }
       ));
     };
 
-    getCountries();
+    // Adding this timeout in order to see the loader
+    setTimeout(() => {
+      getCountries();
+    }, 2000);
+
   }, []);
 
   return (
