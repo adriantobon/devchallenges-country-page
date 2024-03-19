@@ -1,3 +1,5 @@
+import { ICountry } from './country.interface';
+
 interface IAppStateFilters {
   searchBy: string | null;
   sortBy: string | null;
@@ -6,7 +8,7 @@ interface IAppStateFilters {
 }
 
 export interface IAppState {
-  countries: [];
+  countries: ICountry[];
   isLoading: boolean;
   filters: IAppStateFilters
 }
